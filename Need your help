@@ -1,0 +1,27 @@
+i am not getting the output from the below code
+
+  setTimeout(() => {
+          if (this.lastTime - event.timeStamp === 0) {
+            this.loading = true
+
+            const re = new RegExp(this.queryParamName, 'g');
+
+            this.fetch(this.src.replace(re, this.query)).then((response) => {
+              if (this.query) {
+                
+                from this line we are getting value in response but 
+                getting this is not defined
+                let data = this.getResponse(response)
+                
+                
+                
+                this.data = this.limit ? data.slice(0, this.limit) : data
+                this.items = this.render(this.limit ? data.slice(0, this.limit) : data, this)
+
+                this.current = -1
+                this.loading = false
+
+                if (this.selectFirst) {
+                  this.down()
+                }
+              }
